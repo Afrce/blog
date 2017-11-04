@@ -5,48 +5,91 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
     <title>seeYou</title>
     <style>
-
-        html, body {
-            background-color: #fff;
-            color: #636b6f;
+        body{
+            font-size: 16px;
             font-family: 'Raleway', sans-serif;
-            font-weight: 100;
+        }
+        #see{
+            text-align: center;
+            margin: 0 auto;
+            font-size: 24px;
+            color: #636b6f;
+        }
+        *{
             margin: 0;
         }
-        #content{
-            text-align: center;
-            vertical-align: middle;
+        /* .footer的每一级父元素都为100%高 */
+        html, body {
+            height: 100%;
+        }
+        /* 填充块和页脚一样高 */
+        .footer{
+            position: absolute;
+            bottom: 0;
             width: 100%;
-            margin-top: 10%;
-            padding:0 0 15px 0;
-            font-size: 5vmin;
-        }
-        #link{
             text-align: center;
-            font-size: 2.2vmax;
-        }
-        #link a{
-            text-decoration: none;
+            height: 20px;
+            line-height: 20px;
             color: #636b6f;
-            margin:0 20%;
         }
     </style>
 </head>
 <body>
-    <div id="content">
-        凤兮凤兮归故乡，遨游四海求其凰。<br />
-        时未遇兮无所将，何悟今兮升斯堂！<br />
-        有艳淑女在闺房，室迩人遐毒我肠。<br />
-        何缘交颈为鸳鸯，胡颉颃兮共翱翔！<br />
-        凰兮凰兮从我栖，得托孳尾永为妃。<br />
-        交情通意心和谐，中夜相从知者谁？<br />
-        双翼俱起翻高飞，无感我思使余悲。<br />
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#example-navbar-collapse">
+                <span class="sr-only">切换导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">遇●见</a>
+        </div>
+        <div class="collapse navbar-collapse" id="example-navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="#">科技美学</a>
+                </li>
+                <li>
+                    <a href="#">音乐畅想</a>
+                </li>
+                <li >
+                    <a href="#">说文解字</a>
+                </li>
+                <li>
+                    <a href="">电影杂谈</a>
+                </li>
+                <li>
+                    <a href="">Coding</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+            </ul>
+        </div>
     </div>
-    <div id="link">
-        <a href="">SF</a>
-        <a href="">GITHUB</a>
+</nav>
+<div id="content" class="container">
+    <div id="see">
+        绿绮琴中心事，齐纨扇上时光。        <br>
+        五陵年少浑薄幸，轻如曲水飘香。        <br>
+        夜夜魂消梦峡，年年泪尽啼湘。        <br>
+        <br>
+        归雁行边远字，惊莺舞处离肠。 <br>
+        蕙楼多少铅华在，从来错倚红妆。 <br>
+        可羡邻姬十五，金钗早嫁王昌。 <br>
     </div>
+</div>
+<div class="footer">
+    遇见即是缘分
+</div>
 </body>
 </html>
