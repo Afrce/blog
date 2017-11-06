@@ -20,6 +20,12 @@
             font-size: 20px;
             color: #636b6f;
         }
+        #page{
+            min-height:100%;
+            height: auto !important;
+            position: relative;
+            padding-bottom: 22px;
+        }
         *{
             margin: 0;
         }
@@ -40,56 +46,58 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-default" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse"
-                    data-target="#example-navbar-collapse">
-                <span class="sr-only">切换导航</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">遇●见</a>
+<div id="page">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#example-navbar-collapse">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">遇●见</a>
+            </div>
+            <div class="collapse navbar-collapse" id="example-navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="#">科技美学</a>
+                    </li>
+                    <li>
+                        <a href="#">音乐畅想</a>
+                    </li>
+                    <li >
+                        <a href="#">说文解字</a>
+                    </li>
+                    <li>
+                        <a href="">电影杂谈</a>
+                    </li>
+                    <li>
+                        <a href="">Coding</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="collapse navbar-collapse" id="example-navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active">
-                    <a href="#">科技美学</a>
-                </li>
-                <li>
-                    <a href="#">音乐畅想</a>
-                </li>
-                <li >
-                    <a href="#">说文解字</a>
-                </li>
-                <li>
-                    <a href="">电影杂谈</a>
-                </li>
-                <li>
-                    <a href="">Coding</a>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
-            </ul>
+    </nav>
+    <div id="content" class="container">
+        <div id="see">
+            绿绮琴中心事，齐纨扇上时光。        <br>
+            五陵年少浑薄幸，轻如曲水飘香。        <br>
+            夜夜魂消梦峡，年年泪尽啼湘。        <br>
+            <br>
+            归雁行边远字，惊莺舞处离肠。 <br>
+            蕙楼多少铅华在，从来错倚红妆。 <br>
+            可羡邻姬十五，金钗早嫁王昌。 <br>
         </div>
     </div>
-</nav>
-<div id="content" class="container">
-    <div id="see">
-        绿绮琴中心事，齐纨扇上时光。        <br>
-        五陵年少浑薄幸，轻如曲水飘香。        <br>
-        夜夜魂消梦峡，年年泪尽啼湘。        <br>
-        <br>
-        归雁行边远字，惊莺舞处离肠。 <br>
-        蕙楼多少铅华在，从来错倚红妆。 <br>
-        可羡邻姬十五，金钗早嫁王昌。 <br>
+    <div class="footer">
+        遇见即是缘分
     </div>
-</div>
-<div class="footer">
-    遇见即是缘分
 </div>
 </body>
 </html>
