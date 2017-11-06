@@ -17,7 +17,7 @@
         #see{
             text-align: center;
             margin: 0 auto;
-            font-size: 24px;
+            font-size: 20px;
             color: #636b6f;
         }
         *{
