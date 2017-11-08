@@ -30,7 +30,10 @@ class ApiController extends Controller
 
         try {
             if (! $token = JWTAuth::attempt($payload)) {
+                $token = JWTAuth::attempt($payload);
                 $data=['error' => 'token已经失效'];
+                $data[]=['token' => $token];
+
             } else {
                 $data=['token' => $token];
             }
