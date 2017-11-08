@@ -14,10 +14,6 @@ use Illuminate\Http\Request;
 */
 
 $api=app('Dingo\Api\Routing\Router');
-$api->version('v1',function ($api){
-   $api->get('test',function (){
-       $data['status']=true;
-       $data['data']=1;
-      return response()->json($data);
-   });
+$api->version('v1',['namespace'=>'App\Http\Controllers\Api'],function ($api){
+   $api->get('reg','ApiCOntroller@getReg');
 });
