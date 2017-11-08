@@ -35,7 +35,7 @@ class regRequest extends FormRequest
             'user.unique'=>'该用户名已被注册',
             'user.required'=>'必须填写用户名',
             'password.required'=>'必须填写密码',
-            'tel.required'=>'必须填写用户名',
+            'tel.required'=>'必须填写手机号',
             'email.required'=>'必须填写邮箱',
             'email.unique'=>'该邮箱已被注册'
         ];

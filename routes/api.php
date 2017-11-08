@@ -16,4 +16,5 @@ use Illuminate\Http\Request;
 $api=app('Dingo\Api\Routing\Router');
 $api->version('v1',['namespace'=>'App\Http\Controllers\Api'],function ($api){
    $api->get('reg','ApiController@getReg');
+   $api->get('login','ApiController@postLogin');
 });
