@@ -25,7 +25,7 @@ class ApiController extends Controller
         return response()->json($data);
     }
     //登录
-    public function postLogin(){
+    public function getLogin(){
 
         $payload = Request::only('user', 'password');
 
