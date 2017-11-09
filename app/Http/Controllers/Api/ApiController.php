@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\regRequest;
 use App\User;
+use Mockery\Exception;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 
@@ -28,19 +29,21 @@ class ApiController extends Controller
 
         $payload = Request::only('user', 'password');
 
-        try {
-            if (! $token = JWTAuth::attempt($payload)) {
-                $token = JWTAuth::attempt($payload);
-                $data=['error' => 'token已经失效'];
-                $data[]=['token' => $token];
-
-            } else {
-                $data=['token' => $token];
+        try{
+            $res=Auth::attempt($payload);
+            if($res==false){
+                $data['status']=402;
+                $data['message']='账号密码错误，请确认无误后再试';
+            }else{
+                $data['status']=200;
+                $user['user']=Request::input('user');
+                $user['token']=JWTAuth::attempt($payload);
+                $data['user']=$user;
             }
-        } catch (JWTException $e) {
-            $data=['error' => '不能创建token'];
+        }catch (Exception $exception){
+            $data['status']=500;
+            $data['message']="服务器内部问题请稍候再试";
         }
-
         return response()->json($data);
     }
 }
