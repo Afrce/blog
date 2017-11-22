@@ -33,6 +33,11 @@
         html, body {
             height: 100%;
         }
+        body{
+            background: url("./img/bk.jpg") no-repeat;
+            background-size: cover;
+
+        }
         /* 填充块和页脚一样高 */
         .footer{
             position: absolute;

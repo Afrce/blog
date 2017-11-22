@@ -10,9 +10,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','DefaultController@index');
 Route::group(["prefix"=>"admin","namespace"=>"Admin"],function (){
     Route::get("/","adminController@index");
 });
+
