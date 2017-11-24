@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,11 @@ use Illuminate\Http\Request;
 */
 
 $api=app('Dingo\Api\Routing\Router');
-$api->version('v1',['namespace'=>'App\Http\Controllers\Api'],function ($api){
-   $api->get('reg','ApiController@getReg');
-   $api->get('login','ApiController@getLogin');
+$api->version('v1',['namespace'=>'App\Http\Controllers\Api'],function ($api) {
+    $api->get('reg', 'ApiController@getReg');
+    $api->get('login', 'ApiController@getLogin');
+    $api->get('getToken','ApiController@getToken');
+    $api->group(['middleware'=>'getFormToken'], function ($api) {
+        $api->get('test', 'ApiController@getTest');
+    });
 });

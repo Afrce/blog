@@ -46,4 +46,10 @@ class ApiController extends Controller
         }
         return response()->json($data);
     }
+    function getTest(){
+        $user=$user = JWTAuth::parseToken()->getPayload()->get();
+        dd($user);
+
+
+    }
 }
