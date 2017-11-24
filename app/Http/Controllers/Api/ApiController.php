@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\article;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\Controller;
@@ -49,7 +50,18 @@ class ApiController extends Controller
     function getTest(){
         $user=$user = JWTAuth::parseToken()->getPayload()->get();
         dd($user);
-
-
+    }
+    function getIndex(){
+        $data=article::with('Type')->paginate(15)->toArray();
+        $returnData=[];
+        foreach ($data['data'] as $item){
+            $one=[];
+            $one['id']=$item['id'];
+            $one['title']=$item['title'];
+            $one['date']=$item['created_at'];
+            $one['type']=$item['type']['type'];
+            $returnData[]=$one;
+        }
+        return successRetun($returnData);
     }
 }

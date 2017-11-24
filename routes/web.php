@@ -9,8 +9,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use Illuminate\Support\Facades\Route;
+use App\Models\article;
 Route::get('/','DefaultController@index');
+
 Route::group(["prefix"=>"admin","namespace"=>"Admin"],function (){
     Route::get("/","adminController@index");
 });
