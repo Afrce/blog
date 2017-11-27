@@ -11,6 +11,7 @@ use App\User;
 use Mockery\Exception;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
+use Illuminate\Support\Facades\DB;
 
 class ApiController extends Controller
 {
@@ -51,6 +52,7 @@ class ApiController extends Controller
         $user=$user = JWTAuth::parseToken()->getPayload()->get();
         dd($user);
     }
+    //首页数据
     function getIndex(){
         $data=article::with('Type')->paginate(15)->toArray();
         $returnData=[];
@@ -63,5 +65,29 @@ class ApiController extends Controller
             $returnData[]=$one;
         }
         return successRetun($returnData);
+    }
+    //文章详情
+    function getArticle(){
+        $id=Request::input('id');
+        $art=article::query()->whereId($id)
+            ->with(['Comment'=>function($query){
+               return $query->select('article_id',DB::raw('count(1) as t'))->groupBy('article_id');
+            }])
+            ->with(['Collection'=>function($query){
+                return  $query->select('article_id',DB::raw('count(1) as ty'))->groupBy('article_id');
+            }])
+            ->get()
+            ->toArray();
+        if(count($art[0]['comment'])>0){
+            $art[0]['comment']= $art[0]['comment'][0]['t'];
+        }else{
+            $art[0]['comment']= 0;
+        }
+        if(count($art[0]['collection'])>0){
+            $art[0]['collection']= $art[0]['collection'][0]['ty'];
+        }else{
+            $art[0]['collection']=0;
+        }
+        return response()->json($art[0]);
     }
 }
