@@ -19,10 +19,5 @@ class article extends Model
     public function Comment(){
         return $this->hasMany('App\Models\comment','article_id','id');
     }
-    //转换时间
-    public function getCreatedAtAttribute($value)
-    {
-        Carbon::setLocale('Zh');
-        return Carbon::parse($value)->diffForHumans();
-    }
+
 }
