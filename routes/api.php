@@ -20,8 +20,10 @@ $api->version('v1',['namespace'=>'App\Http\Controllers\Api'],function ($api) {
     $api->get('login', 'ApiController@getLogin');
     $api->get('index',"ApiController@getIndex");
     $api->get('getToken','ApiController@getToken');
+    $api->get('comment','ApiController@getComment');
     $api->get('article','ApiController@getArticle');
     $api->group(['middleware'=>'getFormToken'], function ($api) {
         $api->get('test', 'ApiController@getTest');
+        $api->get('addComment','ApiController@getAddComment');
     });
 });
