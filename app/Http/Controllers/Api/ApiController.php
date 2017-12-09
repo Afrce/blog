@@ -113,13 +113,17 @@ class ApiController extends Controller
                 return $query->select('id', 'user');
             }])
             ->with('comment')
-            ->orderBy('created_at')
+            ->orderBy('created_at','DESC')
             ->paginate(25)
             ->toArray();
         $data = $comment['data'];
         foreach ($data as &$item) {
             $item['userName'] = $item['user']['user'];
             unset($item['user']);
+            if($item['comment']!=null){
+                $id=$item['comment']['user_id'];
+                $item['comment']['userName']=User::find($id)->user;
+            }
         }
         return response()->json($data);
     }
