@@ -10,4 +10,7 @@ class comment extends Model
     {
         return  $this->hasOne('App\User','id','user_id');
     }
+    public function comment(){
+        return $this->hasOne('App\Models\comment','comment_id','id');
+    }
 }
