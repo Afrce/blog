@@ -112,6 +112,7 @@ class ApiController extends Controller
             ->with(['user' => function ($query) {
                 return $query->select('id', 'user');
             }])
+            ->with('comment')
             ->orderBy('created_at')
             ->paginate(25)
             ->toArray();
@@ -130,14 +131,11 @@ class ApiController extends Controller
         $article_id = Request::input('articleId');
         if (Request::has('commentId')) {
             $commentId = Request::input('commentId');
-            $commentUserId = Request::input('$commentUserId');
         } else {
             $commentId = 0;
-            $commentUserId = 0;
         }
         $comment->article = $article_id;
         $comment->user_id = $userid;
-        $comment->commentUser_id = $commentUserId;
         $comment->comment_id = $commentId;
         $comment->comments = Request::input('comments');
         $result = $comment->save();
