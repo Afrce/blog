@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Requests\ArticleRequest;
 use App\Models\article;
 use App\Models\comment;
 use App\Models\type;
@@ -109,6 +110,7 @@ class ApiController extends Controller
     function getComment()
     {
         $comment = comment::query()
+            ->where('article_id',Request::input('id'))
             ->with(['user' => function ($query) {
                 return $query->select('id', 'user');
             }])
@@ -144,5 +146,25 @@ class ApiController extends Controller
         $comment->comments = Request::input('comments');
         $result = $comment->save();
         return response()->json($result);
+    }
+
+    function postAddArticle(ArticleRequest $request){
+        $article=new article();
+        $user=JWTAuth::parseToken()->getPayload()->get();
+        $user_id=$user['sub'];
+        $article->title=$request->title;
+        $article->content=$request->content;
+        $article->type=$request->type;
+        $article->user_id=$user_id;
+        try{
+            $article->save();
+        }catch (Exception $e){
+            $data['status']=401;
+            $data['message']='发布失败请稍后再试！';
+            return response()->json('data');
+        }
+        $data['status']=200;
+        $data['message']='发布成功！';
+        return response()->json($data);
     }
 }
