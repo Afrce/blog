@@ -24,5 +24,6 @@ $api->version('v1',['namespace'=>'App\Http\Controllers\Api'],function ($api) {
     $api->get('article','ApiController@getArticle');
     $api->group(['middleware'=>'getFormToken'], function ($api) {
         $api->get('addComment','ApiController@getAddComment');
+        $api->post('addArticle','ApiController@postAddArticle');
     });
 });
